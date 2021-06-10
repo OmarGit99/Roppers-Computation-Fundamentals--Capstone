@@ -1,1 +1,4 @@
-# Roppers-Computation-Fundamentals--Capstone
+# Computation-Fundamentals--Capstone
+
+Capstone project based on banditoverflow
+
