@@ -4,13 +4,11 @@ nextpass = ''
 
 for i in range(6):
     data = []
-    myfile = open("bandit"+str(i)+".cfg", "r")
-    while myfile:
-        line  = myfile.readline()
-        data.append(line)
-        if line == "":
-            break
-    myfile.close()
+    with open("bandit"+str(i)+".cfg", "r") as myfile:
+        while myfile:
+            data.append(line := myfile.readline())
+            if line == "":
+                break
 
 
     address = data[0].rstrip("\n").split(": ")[1]
@@ -32,20 +30,18 @@ for i in range(6):
 
     if(len(commands)>1):
         command = '&&'
-        command = command.join(commands)
-        print(command)
+        print(command := command.join(commands))
 
     else:
         command = commands[0]
 
 
-    nextpass = repr(session(command))
-    print(nextpass)
+    print(nextpass := repr(session(command)))
+    
     '''
     for commandind in range(len(commands)):
         if(commandind == len(commands)-1):
-            nextpass = repr(session(commands[commandind]))
-            print(nextpass)
+            print(nextpass := repr(session(commands[commandind])))
         else:
             print(repr(session(commands[commandind])))
 
